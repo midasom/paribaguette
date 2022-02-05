@@ -1,0 +1,175 @@
+/*responsive.css*/
+@charset "utf-8";
+/*
+반응형 웹을 구축하기 위해서는 하단 구문처럼 작성한다.
+@media (max-width:000px){  //000px 이하의 구간에서는 아래의 스타일로 변경해주세요.
+    선택자{color:red;}
+}
+
+@media (min-width:000px){  //000px 이상의 구간에서는 아래의 스타일로 변경해주세요.
+    선택자{color:red;}
+}
+[구간 정의 - max-width 기준]
+1199px 이하의 구간 : tablet-가로 / tablet-세로, mobile-가로 / mobile-세로
+991px 이하의 구간 : tablet-세로, mobile-가로 / mobile-세로
+767px 이하의 구간 : mobile-가로 / mobile-세로
+575px 이하의 구간 : mobile-세로
+==> 절대 순서를 지켜가면서 작성해야 정확한 구간에 대한 스타일을 적용할 수 있음
+
+[반응형에서 스타일 선언시 주의사항]
+#1. 구간별로 변경되지 않은 스타일은 다시 작성하지 않는다.
+#2. 반응형에서 스타일을 선언시 선택자의 명시도(아이디 100점, 클래스 10점, 태그 1점)를 절대 조정하지 말 것 : 명시도에 의해 실제 적용 안됨
+#3. 모든 디바이스의 단위를 고려하지 말 것~! ==> 고정 px 단위는 무조건 지양할 것... %로 작성한다. (특히 가로 사이즈)
+*/
+
+@media (max-width:1199px){
+    header .wrap{width: 100%; padding: 0 10px;}
+    header .wrap .logo a img{height: 14px;}
+
+    #magazine .wrap{width: 100%;}
+
+    #story .wrap{width: 100%;}
+    #story .wrap .cont .stBox .img_part{height: 100%;}
+    #story .wrap .cont .stBox .img_part img{position: absolute; height: 100%; width: auto; left:50%; transform: translateX(-50%);}
+
+    #promotion .wrap{width: 100%;}
+    #promotion .wrap .cont .prBox .img_part img{filter:grayscale(0);}
+
+
+
+    #products .wrap{width: 100%;}
+    #products .wrap .cont .pd_box{width: calc(25% - 20px);}
+    #products .wrap .cont .pd_box:last-child{display: none;}
+
+
+    #quick{transform: translateY(103%); transition: transform 0.5s;}
+    #quick .quick_open{display: block;}
+
+    #quick .quick_open label:first-child{}
+    #quick .quick_open label:last-child{display: none;}
+    input#quickUp:checked ~ #quick{transform: translateY(0%);}
+    input#quickUp:checked ~ #quick .quick_open label:first-child{display: none;}
+    input#quickUp:checked ~ #quick .quick_open label:last-child{display: block;}
+
+
+
+
+}
+@media (max-width:991px){
+    header{/*height: auto;*/}
+    header .wrap{justify-content: center;}
+
+    header .wrap input{display: none;}
+    header .wrap .res_menu{
+        display: block;
+        position: absolute; 
+        top:50%; 
+        right:10px; 
+        color:#fff; 
+        font-size: 32px; 
+        transform:translateY(-50%); 
+        z-index: 10;
+    }
+    header .wrap .res_menu label{cursor: pointer;}
+    header .wrap .res_menu label:first-child{}
+
+    header .wrap .res_menu label:last-child{display: none;}
+
+    header .wrap .menu1{
+        position: absolute; 
+        top:80px; 
+        left:0; 
+        width: 100%; 
+        background-color:#023586;
+        display: none;
+    }
+    header .wrap .menu1 ul{width: 100%;}
+    header .wrap .menu1 ul li{width: calc(100% / 3); text-align: center;}
+    header .wrap .menu1 ul li a{line-height: 40px;}
+
+    header .wrap .menu2{
+        position: absolute; 
+        top:120px; 
+        left:0; 
+        width: 100%; 
+        background-color:#023586;
+        display: none;
+    }
+    header .wrap .menu2 ul{width: 100%; flex-wrap: wrap;}
+    header .wrap .menu2 ul li{width: calc(100% / 3); text-align: center;}
+    header .wrap .menu2 ul li:last-child{display: none;}
+    header .wrap .menu2 ul li a{line-height: 40px;}
+
+
+    header .wrap input#res_off:checked ~ .menu1{display: block;} /*숨겨진 메뉴 보여주기*/
+    header .wrap input#res_off:checked ~ .menu2{display: block;} /*숨겨진 메뉴 보여주기*/
+
+    header .wrap input#res_off:checked ~ .res_menu label:first-child{display: none;}
+    header .wrap input#res_off:checked ~ .res_menu label:last-child{display: block;}
+
+}
+
+@media (max-width:767px){
+    body{overflow-x: hidden;}
+
+    /*이미지 슬라이드*/
+    /*animation : 애니메이션시간 애니메이션이름 반복횟수 애니메션이작동되는 delay */
+    #banner .cover{width: 150%; animation: 10s aniMove infinite linear; display: none;}
+    #banner .mainImg{}
+
+    @keyframes aniMove {
+        0%{margin-left: 0;} /*0초 일때*/
+        20%{margin-left: 0;}
+        40%{margin-left: -50%;} /*4초 일때*/
+        60%{margin-left: -50%;}
+        70%{margin-left: -50%;}
+        90%{margin-left: 0;}
+        100%{margin-left: 0;} /*10초 일때*/
+    }
+
+    #magazine .wrap .cont .maBox{width: calc(50% - 20px);}
+    #magazine .wrap .cont .maBox:last-child{display: none;}
+
+    #story .wrap .cont .stBox{width: 100%;}
+    #story .wrap .cont .stBox .img_part img{height: auto; width: 100%;}
+
+    #promotion .wrap .cont .prBox{width: 50%;}
+
+    #products .wrap .cont .pd_box{width: calc(50% - 20px);}
+
+    #products .wrap .cont .pd_box .img_part img{width: 120%; height: auto; }
+
+    #notice{}
+    #notice .cover{width: 150%; animation: 10s aniMove infinite linear;}
+}
+
+
+@media (max-width:575px){
+    /*
+    #magazine .wrap .cont .maBox{width: calc(100% - 20px);}
+    #magazine .wrap .cont .maBox:last-child{display: block;}
+    */
+    #story .wrap .cont .stBox .img_part{height:240px;}
+    #story .wrap .cont .stBox .img_part img{height: 120%; width: auto;}
+    #story .wrap .cont .stBox .txt_part p{display: none;}
+    #notice{}
+    #notice .cover{width: 300%; animation: 10s noticeMove infinite;}
+    @keyframes noticeMove {
+        0%{margin-left:0;}
+        25%{margin-left:-100%;}
+        50%{margin-left:-200%;}
+        75%{margin-left:-100%;}
+        100%{margin-left:0;}
+    }
+    #ad{height: 55vw;}
+    #ad .movie_space{height: 140%;}
+    #ad .dark_cover{display: none;}
+
+
+
+    #magazine{padding: 40px 0;}
+    #story{padding: 40px 0;}
+    #promotion{padding: 40px 0;}
+    #products{padding: 40px 0;}
+    #notice{padding: 40px 0 0;}
+}

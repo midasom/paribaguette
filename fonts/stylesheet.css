@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'PBGothicOTFRg';
+    src: url('PBGothicOTFRg.eot');
+    src: url('PBGothicOTFRg.eot?#iefix') format('embedded-opentype'),
+        url('PBGothicOTFRg.woff2') format('woff2'),
+        url('PBGothicOTFRg.woff') format('woff'),
+        url('PBGothicOTFRg.ttf') format('truetype'),
+        url('PBGothicOTFRg.svg#PBGothicOTFRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PBGothicOTFBd';
+    src: url('PBGothicOTFBd.eot');
+    src: url('PBGothicOTFBd.eot?#iefix') format('embedded-opentype'),
+        url('PBGothicOTFBd.woff2') format('woff2'),
+        url('PBGothicOTFBd.woff') format('woff'),
+        url('PBGothicOTFBd.ttf') format('truetype'),
+        url('PBGothicOTFBd.svg#PBGothicOTFBd') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

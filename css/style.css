@@ -1,0 +1,371 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'PBGothicOTFRg';
+    src: url('../fonts/PBGothicOTFRg.eot');
+    src: url('../fonts/PBGothicOTFRg.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/PBGothicOTFRg.woff2') format('woff2'),
+        url('../fonts/PBGothicOTFRg.woff') format('woff'),
+        url('../fonts/PBGothicOTFRg.ttf') format('truetype'),
+        url('../fonts/PBGothicOTFRg.svg#PBGothicOTFRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PBGothicOTFBd';
+    src: url('../fonts/PBGothicOTFBd.eot');
+    src: url('../fonts/PBGothicOTFBd.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/PBGothicOTFBd.woff2') format('woff2'),
+        url('../fonts/PBGothicOTFBd.woff') format('woff'),
+        url('../fonts/PBGothicOTFBd.ttf') format('truetype'),
+        url('../fonts/PBGothicOTFBd.svg#PBGothicOTFBd') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+*{box-sizing: border-box; font-family: 'PBGothicOTFRg';}
+html, body{margin: 0; padding: 0;}
+h1, h2, h3, h4, h5, h6, p{margin: 0;}
+ul, ol{margin: 0; padding: 0; list-style: none;}
+a{text-decoration: none;}
+.title{font-family: 'PBGothicOTFBd';}
+/*#023586*/
+
+/*div로부터 파생된 태그 header, main, section, article, aside, nav, footer
+*/
+
+/***HEADER_PART***/
+header{
+    width: 100%;
+    height: 80px; 
+    background-color: #023586;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+header .wrap{
+    width: 1200px; 
+    height: 100%; 
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .wrap .input{display: none;}
+header .wrap .res_menu{display: none;}
+
+header .wrap .menu1{width: 360px; display: flex; justify-content: flex-start;}
+header .wrap .menu1 ul{display: flex;}
+header .wrap .menu1 ul li{}
+header .wrap .menu1 ul li a{
+    display: block; 
+    padding: 0 10px;
+    font-size: 14px;
+    color:#ccc;
+    line-height: 80px;
+    position: relative;
+    transition: color 0.5s;
+}
+header .wrap .menu1 ul li:hover a{
+    color: #fff;
+}
+header .wrap .menu1 ul li a:after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s;
+}
+header .wrap .menu1 ul li:hover a:after{
+    width: 100%;
+}
+
+
+header .wrap .logo{}
+header .wrap .logo a {}
+header .wrap .logo a img{}
+
+header .wrap .menu2{width: 360px; display: flex; justify-content: flex-end;}
+header .wrap .menu2 ul{display: flex;}
+header .wrap .menu2 ul li{}
+header .wrap .menu2 ul li a{
+    display: block; 
+    padding: 0 10px;
+    font-size: 14px;
+    color:#ccc;
+    line-height: 80px;
+    position: relative;
+    transition: color 0.5s;
+}
+header .wrap .menu2 ul li:hover a{
+    color: #fff;
+}
+
+header .wrap .menu2 ul li a:after{
+    content: ""; /*after 가상공간을 설정하는 필수 속성*/
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s;
+}
+header .wrap .menu2 ul li:hover a:after{
+    width: 100%;
+}
+
+header .wrap .menu2 ul li:last-child a:after{
+    background-color: transparent;
+}
+
+/*before와 after라는 위치는 가상공간 구성 : 지금부터 content 속성을 설정을 하면 가상 공간이 만들어진다.*/
+
+header .wrap .menu2 ul li a img{
+    display: block;
+    height: 20px;
+    filter:invert(100%);
+    margin-top: 30px;
+}
+
+#banner{
+    width: 100%;
+    padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#banner .mainImg{width: calc(100% / 3); position: relative;}
+#banner .mainImg img{display: block; width: 100%;}
+
+#banner .mainImg .dark_cover{
+    position: absolute; top:0; left:0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+    transition: background-color 1s;}
+
+/*형제인 img 태그의 이미지 높이값이 .mainImg의 높이 값으로 전달되고, 그 전달된 높이값을 .dark_cover에게 전달된다.*/
+
+#banner .mainImg:hover .dark_cover{background-color: rgba(0,0,0,0);}
+
+#magazine{padding: 100px 0;}
+#magazine .wrap{width: 1200px; margin: 0 auto;}
+#magazine .wrap .tit{padding: 0 10px 40px; display: flex; justify-content: space-between; align-items: baseline;}
+/*align-items: baseline; ==> vertical-align을 내부 콘텐츠의 하위에 맞춘다.*/
+#magazine .wrap .tit h3{font-weight: bold; color:#333; font-size: 24px;}
+#magazine .wrap .tit a{display: block; color:#999; font-size: 16px; border-bottom: 1px solid #999;}
+
+#magazine .wrap .tit a:before{content: "+ ";}
+
+#magazine .wrap .tit a:hover{color:#023586; border-bottom: 1px solid #023586;}
+
+#magazine .wrap .cont{
+    display: flex; flex-wrap: wrap;
+}
+#magazine .wrap .cont .maBox{width: calc(100% / 3 - 20px); margin: 0 10px 20px; position: relative; overflow: hidden;}
+/*overflow: hidden; 은 지정된 영역외부로 넘친 공간을 감춘다.*/
+
+#magazine .wrap .cont .maBox img{display: block; width: 100%;}
+
+#magazine .wrap .cont .maBox .dark_cover{
+    position: absolute;
+    top:100%;
+    left:0;
+    width: 100%; height: 100%;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+    transition: top 1s;
+}
+#magazine .wrap .cont .maBox:hover .dark_cover{
+    top:0;
+}
+
+#magazine .wrap .cont .maBox .bottom_cover{position: absolute; bottom:0; left:0; width: 100%; padding: 16px;}
+#magazine .wrap .cont .maBox .bottom_cover h4{font-size: 24px; color:#fff; padding-bottom: 20px; text-shadow:0 0 4px rgba(0,0,0,0.8);}
+#magazine .wrap .cont .maBox .bottom_cover p{font-size: 14px; color:#fff; text-shadow:0 0 4px rgba(0,0,0,0.8);}
+/*text-shadow:Xoffset값 Yoffset spread 그림자색상*/
+
+
+
+
+/**#story**/
+#story{padding: 100px 0;}
+#story .wrap{width: 1200px; margin: 0 auto;}
+#story .wrap .tit{padding: 0 10px 40px; display: flex; justify-content: space-between; align-items: baseline;}
+/*align-items: baseline; ==> vertical-align을 내부 콘텐츠의 하위에 맞춘다.*/
+#story .wrap .tit h3{font-weight: bold; color:#333; font-size: 24px;}
+#story .wrap .tit a{display: block; color:#999; font-size: 16px; border-bottom: 1px solid #999;}
+
+#story .wrap .tit a:before{content: "+ ";}
+
+#story .wrap .tit a:hover{color:#023586; border-bottom: 1px solid #023586;}
+
+#story .wrap .cont{
+    display: flex; flex-wrap: wrap;
+}
+#story .wrap .cont .stBox{width: 50%; padding: 0 10px 20px; display: flex; flex-wrap: wrap;}
+#story .wrap .cont .stBox .img_part{width: 50%; position: relative; overflow: hidden;}
+#story .wrap .cont .stBox .img_part img{display: block; width: 100%;}
+
+#story .wrap .cont .stBox .img_part .dark_cover{
+    position: absolute; 
+    top:100%; left:0; 
+    width: 100%; height: 100%;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+    transition: top 1s;
+}
+
+#story .wrap .cont .stBox:hover .img_part .dark_cover{top:0%;}
+
+#story .wrap .cont .stBox .txt_part{width: 50%; padding: 10px;}
+#story .wrap .cont .stBox .txt_part .category{display: block; font-size: 14px; color:#023586; padding-bottom: 16px; padding-top: 8px;}
+
+#story .wrap .cont .stBox .txt_part h3{font-size: 22px; color:#555;padding-bottom: 10px;}
+
+#story .wrap .cont .stBox .txt_part p{font-size: 16px; color:#777; padding-bottom: 20px;}
+
+#story .wrap .cont .stBox .txt_part .date{font-size: 14px; color:#999;}
+
+
+
+
+/**#promotion**/
+#promotion{padding: 100px 0;}
+#promotion .wrap{width: 1200px; margin: 0 auto;}
+#promotion .wrap .tit{padding: 0 10px 40px; display: flex; justify-content: space-between; align-items: baseline;}
+/*align-items: baseline; ==> vertical-align을 내부 콘텐츠의 하위에 맞춘다.*/
+#promotion .wrap .tit h3{font-weight: bold; color:#333; font-size: 24px;}
+#promotion .wrap .tit a{display: block; color:#999; font-size: 16px; border-bottom: 1px solid #999;}
+
+#promotion .wrap .tit a:before{content: "+ ";}
+
+#promotion .wrap .tit a:hover{color:#023586; border-bottom: 1px solid #023586;}
+
+#promotion .wrap .cont{
+    display: flex; flex-wrap: wrap;
+}
+#promotion .wrap .cont .prBox{width: 25%; padding: 0 10px 20px;}
+#promotion .wrap .cont .prBox .img_part{width: 100%; margin-bottom: 10px;}
+#promotion .wrap .cont .prBox .img_part img{display: block; width: 100%; filter: grayscale(100%); transition: filter 1s;}
+
+#promotion .wrap .cont .prBox:hover .img_part img{filter:grayscale(0);}
+
+#promotion .wrap .cont .prBox .txt_part{}
+#promotion .wrap .cont .prBox .txt_part h3{color:#555; font-size: 18px; padding-bottom: 10px;}
+#promotion .wrap .cont .prBox .txt_part a{color:#555; font-size: 14px;}
+#promotion .wrap .cont .prBox .txt_part a:hover{color:#023586;}
+
+
+
+/***#products***/
+#products{padding: 100px 0;}
+#products .wrap{width: 1200px; margin: 0 auto;}
+#products .wrap .tit{padding: 0 10px 40px; display: flex; justify-content: space-between; align-items: baseline;}
+/*align-items: baseline; ==> vertical-align을 내부 콘텐츠의 하위에 맞춘다.*/
+#products .wrap .tit h3{font-weight: bold; color:#333; font-size: 24px;}
+#products .wrap .tit a{display: block; color:#999; font-size: 16px; border-bottom: 1px solid #999;}
+
+#products .wrap .tit a:before{content: "+ ";}
+
+#products .wrap .tit a:hover{color:#023586; border-bottom: 1px solid #023586;}
+
+#products .wrap .cont{display: flex; flex-wrap: wrap;}
+
+#products .wrap .cont .pd_box{width: calc(20% - 20px); margin: 0 10px 20px; padding: 10px; border-radius:6px; border:1px solid #e2e2e2; transition: box-shadow 0.5s;}
+
+#products .wrap .cont .pd_box:hover{box-shadow:0 0 8px rgba(0,0,0,0.2);}
+/*box-shadow : inset (X축으로 중심이동) (Y축으로 중심이동) (번짐정도) (그림자 색상)*/
+#products .wrap .cont .pd_box .img_part{width: 100%; height: 160px; position: relative; overflow: hidden;}
+#products .wrap .cont .pd_box .img_part img{display: block; height: 110%; position: absolute; top:50%; left:50%; transform:translate(-50%, -50%); transition: transform 0.5s;}
+
+#products .wrap .cont .pd_box:hover .img_part img{transform:translate(-50%, -50%) scale(1.05) rotate(-10deg);}
+/*
+스타일 transform 선언
+ - 회전 : rotate(0~360deg) / rotateX(0~360deg) / rotateY(0~360deg) / rotateZ(0~360deg)
+ - 크기 : scale(0) - 크기를 없애라 /  scale(1) - 원본 사이즈 / scale(1.5) - 원본 사이즈의 150%의 크기로 늘린다.
+ - 이동 : translate(x축 방향 이동, y축 방향 이동) / translateX(x축 방향 이동) / translateY(y축 방향 이동)
+ - 왜곡 : skew(0~360deg)
+*/
+
+#products .wrap .cont .pd_box .txt_part{padding-top: 20px;}
+#products .wrap .cont .pd_box .txt_part h4{font-size: 18px; color:#333; text-align:center; padding-bottom: 10px;}
+
+/***#notice***/
+#notice{padding-top: 60px; display: flex; flex-wrap: wrap;}
+#notice .noticeList{width: calc(100% / 3); background-color: #e2e2e2; padding: 40px 60px 40px 40px; background-image: url(../img/chevron-forward-outline.svg); background-repeat: no-repeat; background-position: calc(100% - 20px) 50%; background-size: auto 40px; position: relative;}
+#notice .noticeList:before{content:""; width: 1px; height: 50%; background-color: #023586; position: absolute; left:0; top:50%; transform: translateY(-50%);}
+
+#notice .noticeList span{display: block;color:#023586; padding-bottom: 20px;}
+#notice .noticeList h3{width: 100%; font-size: 18px; color:#555; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+/*text-oversflow 적용시, 넘치는 영역외의 글자를 ...로 표현해야 한다면 - text-overflow: ellipsis; white-space: nowrap; overflow: hidden; 의 3종 세트를 기억해두자~~ */
+
+
+
+/***유투브 연동 영상 보여주기 (자동재생)***/
+#ad{width: 100%; height: 45vw; overflow: hidden; background-color: #000; position: relative;}
+
+#ad .movie_space{position: absolute; top:50%; left:50%; transform: translate(-50%,  -50%); width: 135%; height: 135%;}
+
+#ad .dark_cover{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.25);}
+
+
+/***footer 파트***/
+footer{padding: 40px 0; background-color: #111;}
+footer .sns{display: flex; justify-content: center; padding-bottom: 30px;}
+footer .sns li{margin: 0 10px;}
+footer .sns li a{display: block; width: 40px; height: 40px; background-color: transparent; border-radius:50%; display: flex; justify-content: center; align-items: center; color:#fff; font-size: 20px; border:1px solid #fff; transition:background-color 0.5s, color 0.5s;}
+footer .sns li:hover a{background-color: #fff; color:#111; }
+
+footer .footer_link{display: flex; justify-content: center; padding-bottom: 20px;}
+footer .footer_link li{line-height: 1; padding: 0 10px; border-right: 1px solid #999;}
+footer .footer_link li:last-child{border:none}
+footer .footer_link li a{display: block; font-size: 13px; color:#bbb;}
+footer .footer_link li:hover a{color: #fff;}
+
+footer .copyrights{border-top: 1px solid #999;padding-top: 20px; font-size: 13px; color:#bbb; text-align: center;}
+
+
+
+
+/***우측 고정 퀵바 파트***/
+#quick{position: fixed; bottom: 20px; 
+    right: 20px;width: 80px;
+     background-color: #333; padding: 10px;
+      border-radius:4px;}
+
+#quick input{display: none;}
+
+#quick .quick_open{position: absolute; display: block;
+width: 40px;height: 40px; background-color: #333; border-radius: 50%;
+top: -20%; left: 50%; transform: translateX(-50%);}
+#quick .quick_open label{position: absolute; cursor: pointer;
+font-size: 28px color:#fff;}
+
+
+#quick ul{}
+#quick ul li{padding: 20px 0;}
+#quick ul li:first-child{border-bottom: 1px solid #fff;}
+#quick ul li a{display: block; font-size: 12px; text-align: center; color:#bbb;}
+#quick ul li:hover a{color:#fff;}
+
+#quick ul li a span{display: block;}
+#quick ul li a span.icon{font-size: 1.5em;}
+
+#quick ul li a span.text{font-size: 0.7em;}
+
+
